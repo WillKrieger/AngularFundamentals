@@ -7,7 +7,7 @@ export class EventService {
 
     getEvents() {
       const subject = new Subject();
-      setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 2000);
+      setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 200);
       return subject;
     }
 

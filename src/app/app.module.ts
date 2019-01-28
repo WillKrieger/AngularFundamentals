@@ -1,21 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { EventsAppComponent } from './events-app.component';
-import { EventsListComponent } from './events/events-list.componet';
-import { EventThumbnailComponent } from './events/event-thumbnail.component';
-import { NavBarComponent } from './nav/navbar.component';
-import { EventService } from './events/shared/event.service';
-import { ToastrService } from './common/toastr.service';
-import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { CreateEventComponent } from './events/create-event.component';
-import { Error404Component } from './errors/404.component';
-
-import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
-import { EventRouteActivator } from './events/event-details/event-route-activator.service';
-import { EventListResolver } from './events/events-list-resolver.service';
+import { EventsAppComponent } from './events-app.component';
+import { NavBarComponent } from './nav/navbar.component';
+import { ToastrService } from './common/toastr.service';
+import { Error404Component } from './errors/404.component';
+import { appRoutes } from './routes';
+import { UserModule } from './user/user.module';
 
+import {
+  EventsListComponent,
+  EventThumbnailComponent,
+  EventService,
+  EventDetailsComponent,
+  CreateEventComponent,
+  EventRouteActivator,
+  EventListResolver
+} from './events/index';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EventListResolver } from './events/events-list-resolver.service';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    UserModule
   ],
   providers: [
     EventService,
